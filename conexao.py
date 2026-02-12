@@ -12,7 +12,6 @@ def criar_tabela(conexao, cursor):
     )
     conexao.commit()
 
-
 def inserir_registro(conexao, cursor, nome, email):
     data = (nome, email)
     cursor.execute('INSERT INTO clientes (nome, email) VALUES (?,?);', data)
