@@ -22,4 +22,14 @@ def atualizar_registro(conexao, cursor, nome, email, id):
     cursor.execute('UPDATE clientes SET nome=?, email=? WHERE id=?;', data)
     conexao.commit()
 
-atualizar_registro(conexao, cursor, 'Adilson', 'adilson@gmail.com',1)
+#atualizar_registro(conexao, cursor, 'Adilson', 'adilson@gmail.com',1)
+
+def delete_registro(conexao, cursor, id):
+    data = (id,)
+    cursor.execute('DELETE FROM clientes  WHERE id=?;', data)
+    conexao.commit()
+# criar_tabela(conexao,cursor)
+# inserir_registro(conexao, cursor, 'Ana', 'email')
+# inserir_registro(conexao, cursor, 'Adão', 'email')
+# inserir_registro(conexao, cursor, 'Miguel', 'email')
+delete_registro(conexao, cursor, 2)
