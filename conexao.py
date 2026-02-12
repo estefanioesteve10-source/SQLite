@@ -30,7 +30,7 @@ def delete_registro(conexao, cursor, id):
     conexao.commit()
 
 
-def inserir_registro(conexao, cursor,dados):
+def inserir_many_registro(conexao, cursor,dados):
     cursor.executemany('INSERT INTO clientes (nome, email) VALUES (?,?);', dados)
     conexao.commit()
 
@@ -41,4 +41,4 @@ def inserir_registro(conexao, cursor,dados):
 # delete_registro(conexao, cursor, 2)
 
 dados = (['João', 'barros@gmail.com'],['Edson', 'ed@gmail.com'],['Das menoras', 'menoras@gmail.com'])
-inserir_registro(conexao, cursor,dados)
+inserir_many_registro(conexao, cursor,dados)
