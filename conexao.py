@@ -34,11 +34,26 @@ def inserir_many_registro(conexao, cursor,dados):
     cursor.executemany('INSERT INTO clientes (nome, email) VALUES (?,?);', dados)
     conexao.commit()
 
+def result_cliente(cursor, id):
+    cursor.execute('SELECT * FROM clientes  WHERE id=?;', (id,))
+    return cursor.fetchone()
+
+def list_clientes(cursor):
+    return cursor.execute('SELECT * FROM clientes;')
+
+# result = result_cliente(cursor,1)
+# print(result)
+
+clientes = list_clientes(cursor)
+for cliente in clientes:
+    print(cliente)
+
+
 # criar_tabela(conexao,cursor)
 # inserir_registro(conexao, cursor, 'Ana', 'email')
 # inserir_registro(conexao, cursor, 'Adão', 'email')
 # inserir_registro(conexao, cursor, 'Miguel', 'email')
 # delete_registro(conexao, cursor, 2)
 
-dados = (['João', 'barros@gmail.com'],['Edson', 'ed@gmail.com'],['Das menoras', 'menoras@gmail.com'])
-inserir_many_registro(conexao, cursor,dados)
+# dados = (['João', 'barros@gmail.com'],['Edson', 'ed@gmail.com'],['Das menoras', 'menoras@gmail.com'])
+# inserir_many_registro(conexao, cursor,dados)
